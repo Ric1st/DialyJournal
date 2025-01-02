@@ -147,7 +147,7 @@ if (!isset($_SESSION['username'])) {
                 <a class="nav-link" href="admin.php?page=article">Article</a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link" href="landingPage.php">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
             </li> 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

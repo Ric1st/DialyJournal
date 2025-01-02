@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body class="bg-danger-subtle">
-    <a href="landingPage.php" class="btn btn-primary m-3 px-5">Kembali</a>
+    <a href="index.php" class="btn btn-primary m-3 px-5">Kembali</a>
     <div class="container mt-5 pt-5">
         <div class="row">
             <div class="col-12 col-md-6 col-sm-8 m-auto">

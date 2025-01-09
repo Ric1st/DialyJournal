@@ -1,97 +1,3 @@
-<!-- </?php
-session_start(); 
-$isLogin = isset($_SESSION['isLogin']) && $_SESSION['isLogin'];
-$currentUsername = isset($_SESSION['username']) ? $_SESSION['username'] : '';
-if (!isset($_SESSION['isLogin']) || $_SESSION['isLogin'] !== true) {
-  if($currentUsername !== "admin"){
-    echo '
-    <head>
-        <title>Access Denied</title>
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                background-color: #f8d7da;
-                color: #721c24; 
-                font-family: Arial, sans-serif;
-                font-size: 24px;
-                text-align: center;
-            }
-            .container {
-                max-width: 600px;
-                background: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.3);
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Access Denied</h1>
-            <p>You do not have permission to access this page.</p>
-        </div>
-    </body>
-    </html>';
-    exit(); 
-  }
-}
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Admin</title>
-    <link
-      rel="shortcut icon"
-      href="https://icon-icons.com/icons2/1077/PNG/512/star_77949.png"
-      type="image/x-icon"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #ABBA7C;
-        color: #62825D;
-        font-family: Arial, sans-serif;
-        font-size: 24px;
-        text-align: center;
-      }
-      .container {
-        max-width: 600px;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.3);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1><b>Ini Admin!</b></h1>
-      <p>Ini Halaman Admin</p>
-      <a href="landingPage.php" class="btn btn-success px-4">Home</a>
-      <a href="logout.php" class="btn btn-danger px-4">Logout</a>
-    </div>
-  </body>
-</html> -->
-
-
 <?php
 session_start();
 
@@ -106,7 +12,7 @@ if (!isset($_SESSION['username'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Daily Journal | Admin</title>
     <link rel="icon" href="img/logo.png" />
@@ -122,7 +28,7 @@ if (!isset($_SESSION['username'])) {
     /> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- nav begin -->
     <nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top bg-danger-subtle">
     <div class="container">
@@ -147,13 +53,17 @@ if (!isset($_SESSION['username'])) {
                 <a class="nav-link" href="admin.php?page=article">Article</a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
-            </li> 
+                <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php"><b>HomePage</b></a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?= $_SESSION['username']?>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="admin.php?page=profil">Profile <?= $_SESSION['username']?></a></li> 
                     <li><a class="dropdown-item" href="logout.php">Logout</a></li> 
                 </ul>
             </li> 
@@ -163,7 +73,7 @@ if (!isset($_SESSION['username'])) {
     </nav>
     <!-- nav end -->
     <!-- content begin -->
-    <section id="content" class="p-5">
+    <section id="content" class="flex-grow-1 p-5">
         <div class="container">
             <?php
             if(isset($_GET['page'])){
@@ -182,7 +92,7 @@ if (!isset($_SESSION['username'])) {
     </section>
     <!-- content end -->
     <!-- footer begin -->
-    <footer class="text-center p-5 bg-danger-subtle footer">
+    <footer class="text-center p-5 bg-danger-subtle ">
     <div>
         <a href="https://www.instagram.com/udinusofficial"
         ><i class="bi bi-instagram h2 p-2 text-dark"></i
@@ -194,7 +104,7 @@ if (!isset($_SESSION['username'])) {
         ><i class="bi bi-whatsapp h2 p-2 text-dark"></i
         ></a>
     </div>
-    <div>Aprilyani Nur Safitri &copy; 2023</div>
+    <div>Richard Christoper Subianto &copy; 2024</div>
     </footer>
     <!-- footer end -->
     <script

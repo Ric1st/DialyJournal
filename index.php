@@ -593,24 +593,23 @@ include "koneksi.php";
           <div class="row pb-5">
             <div id="carouselExampleFade" class="carousel slide carousel-fade">
               <div class="carousel-inner">
-                <div class="carousel-item active">
+              <?php
+                $sql = "SELECT * FROM gallery";
+                $hasil = $conn->query($sql); 
+                $isActive = true;
+
+                while($row = $hasil->fetch_assoc()){
+              ?> 
+                <div class="carousel-item <?= $isActive ? 'active' : '' ?>">
                   <img
-                    src="https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-indonesia9.jpg"
+                    src="img/<?= $row["gambar"]?>"
                     class="d-block w-100"
                   />
                 </div>
-                <div class="carousel-item">
-                  <img
-                    src="http://s.kaskus.id/images/2015/05/13/2356090_20150513094551.jpg"
-                    class="d-block w-100"
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="https://images.hdqwalls.com/wallpapers/indonesia-landscape-nature.jpg"
-                    class="d-block w-100"
-                  />
-                </div>
+              <?php
+                $isActive = false;
+                }
+              ?>
               </div>
               <button
                 class="carousel-control-prev"
